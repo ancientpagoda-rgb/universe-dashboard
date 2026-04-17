@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-04-16T15:12:32.193Z",
+  "updatedAt": "2026-04-17T14:41:33.178Z",
   "exoplanets": {
-    "totalConfirmed": 6158,
-    "totalHosts": 4590,
+    "totalConfirmed": 6160,
+    "totalHosts": 4591,
     "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu",
     "byYear": [
       {
@@ -135,11 +135,11 @@
       },
       {
         "year": 2025,
-        "count": 243
+        "count": 244
       },
       {
         "year": 2026,
-        "count": 73
+        "count": 74
       }
     ],
     "byMethod": [
@@ -157,7 +157,7 @@
       },
       {
         "method": "Imaging",
-        "count": 94
+        "count": 96
       },
       {
         "method": "Transit Timing Variations",
