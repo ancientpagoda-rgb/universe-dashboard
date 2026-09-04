@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-09-02T17:15:53.284Z",
+  "updatedAt": "2026-09-04T16:59:23.686Z",
   "exoplanets": {
-    "totalConfirmed": 6354,
-    "totalHosts": 4764,
+    "totalConfirmed": 6360,
+    "totalHosts": 4769,
     "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu",
     "byYear": [
       {
@@ -79,7 +79,7 @@
       },
       {
         "year": 2011,
-        "count": 142
+        "count": 141
       },
       {
         "year": 2012,
@@ -111,7 +111,7 @@
       },
       {
         "year": 2019,
-        "count": 195
+        "count": 194
       },
       {
         "year": 2020,
@@ -139,13 +139,13 @@
       },
       {
         "year": 2026,
-        "count": 263
+        "count": 271
       }
     ],
     "byMethod": [
       {
         "method": "Transit",
-        "count": 4688
+        "count": 4706
       },
       {
         "method": "Radial Velocity",
@@ -153,15 +153,15 @@
       },
       {
         "method": "Microlensing",
-        "count": 283
+        "count": 285
       },
       {
         "method": "Imaging",
-        "count": 98
+        "count": 97
       },
       {
         "method": "Transit Timing Variations",
-        "count": 42
+        "count": 29
       },
       {
         "method": "Eclipse Timing Variations",
