@@ -7,10 +7,28 @@ const __dirname = path.dirname(__filename);
 
 const OUT_PATH = path.resolve(__dirname, "../public/data/universe.json");
 
-async function fetchJson(url) {
-  const r = await fetch(url);
-  if (!r.ok) throw new Error(`fetch failed: ${r.status} ${url}`);
-  return r.json();
+async function fetchJson(url, { timeoutMs = 90_000, retries = 4 } = {}) {
+  let lastError;
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(new Error("timeout")), timeoutMs);
+    try {
+      const response = await fetch(url, { signal: controller.signal });
+      if (!response.ok) {
+        const error = new Error(`fetch failed: ${response.status} ${url}`);
+        error.retryable = [408, 429, 500, 502, 503, 504].includes(response.status);
+        throw error;
+      }
+      return await response.json();
+    } catch (error) {
+      lastError = error;
+      if (attempt === retries || error.retryable === false) throw error;
+      await new Promise((resolve) => setTimeout(resolve, Math.min(1000 * 2 ** (attempt - 1), 8000)));
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+  throw lastError;
 }
 
 const TAP_BASE = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync";
